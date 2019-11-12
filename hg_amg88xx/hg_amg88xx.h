@@ -43,11 +43,11 @@
 #pragma once
 
 /* Includes */
-#include <px4_config.h>
-#include <px4_posix.h>
-#include <px4_app.h>
-#include <px4_i2c.h>
-#include <px4_time.h>
+#include <px4_platform_common/px4_config.h>
+#include <px4_platform_common/posix.h>
+#include <px4_platform_common/app.h>
+#include <px4_platform_common/i2c.h>
+#include <px4_platform_common/time.h>
 
 #include <unistd.h>
 #include <stdio.h>
@@ -122,7 +122,7 @@ enum int_modes
 
 class HG_AMG88xx : public device::I2C
 {
-  public:
+public:
 	/**
 	 * @ Constructor
 	 *
@@ -167,7 +167,7 @@ class HG_AMG88xx : public device::I2C
 	 */
 	void disableInterrupt();
 
-  private:
+private:
 	uint8_t _i2caddr;
 
 	/**

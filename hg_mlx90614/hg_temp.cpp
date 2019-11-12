@@ -41,7 +41,7 @@
 
 /* Includes */
 #include "hg_temp.h"
-#include <px4_getopt.h>
+#include <px4_platform_common/getopt.h>
 
 extern "C" __EXPORT int hg_temp_main(int argc, char *argv[]);
 
@@ -60,7 +60,8 @@ int HG_Temp::init()
 	ret = I2C::init();
 
 	/* if probe/setup failed, bail now */
-	if (ret != OK) {
+	if (ret != OK)
+	{
 		DEVICE_DEBUG("I2C setup failed");
 		return ret;
 	};
@@ -76,10 +77,12 @@ double HG_Temp::readTemp(uint8_t reg)
 	uint8_t data[4] = {0};
 	uint16_t data_temp = 0;
 
-	if (OK != transfer(&cmd, 1, data, 4)) {
+	if (OK != transfer(&cmd, 1, data, 4))
+	{
 		PX4_ERR("No Data received");
-
-	} else {
+	}
+	else
+	{
 		// switching read bytes
 		data_temp = (data[0] | data[1] << 8);
 		temp = data_temp;
@@ -116,7 +119,8 @@ int hg_temp_main(int argc, char *argv[])
 	printf("%02i |  Ambient Temp |  Object Temp\n", counter);
 	printf("-----------------------------------\n");
 
-	for (int i = 1; i <= counter; i++) {
+	for (int i = 1; i <= counter; i++)
+	{
 		printf("%02i |  %+2.2f  |  %+2.2f  \n", i, temp.readAmbientTempC(), temp.readObjectTempC());
 		sleep(1);
 	}

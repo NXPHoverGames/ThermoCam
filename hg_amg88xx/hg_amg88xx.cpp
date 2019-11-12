@@ -40,7 +40,7 @@
  */
 
 #include "hg_amg88xx.h"
-#include <px4_getopt.h>
+#include <px4_platform_common / getopt.h>
 #include <stdio.h>
 using namespace std;
 
