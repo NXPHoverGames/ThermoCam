@@ -41,7 +41,7 @@
 
 /* Includes */
 #include "hg_temp.h"
-#include <px4_getopt.h>
+#include <px4_platform_common/getopt.h>
 
 extern "C" __EXPORT int hg_temp_main(int argc, char *argv[]);
 
