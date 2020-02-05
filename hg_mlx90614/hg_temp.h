@@ -41,11 +41,10 @@
  */
 #pragma once
 
-#include <px4_config.h>
-#include <px4_posix.h>
-#include <px4_app.h>
-#include <px4_i2c.h>
-#include <px4_time.h>
+#include <px4_platform_common/px4_config.h>
+#include <px4_platform_common/posix.h>
+#include <px4_platform_common/app.h>
+#include <px4_platform_common/time.h>
 
 #include <unistd.h>
 #include <stdio.h>
@@ -79,7 +78,7 @@
 
 class HG_Temp : public device::I2C
 {
-  public:
+public:
 	/**
 	 * @ Constructor
 	 *
@@ -111,7 +110,7 @@ class HG_Temp : public device::I2C
 	 */
 	double readAmbientTempC();
 
-  private:
+private:
 	/**
 	 * Read the temerature in degrees Celsius.
 	 *
